@@ -1,0 +1,18 @@
+[alias]
+        <%= 'lg = log --graph --pretty=format:\'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\' --abbrev-commit --date=relative' %>
+        <%= 'lga = log --graph --all --pretty=format:\'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\' --abbrev-commit' %> --date=relative
+        co = checkout
+        st = status
+[color]
+        ui = auto
+[core]
+        excludesfile = /etc/gitignore
+        precomposeunicode = true
+        quotepath = false
+[http]
+        sslVerify = false
+[push]
+        default = simple
+[user]
+        name = <%= node['git-env']['user'] %>
+        email = <%= node['git-env']['email'] %>
