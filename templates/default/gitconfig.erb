@@ -6,13 +6,16 @@
 [color]
         ui = auto
 [core]
-        excludesfile = /etc/gitignore
+        excludesfile = /usr/local/etc/gitignore
         precomposeunicode = true
         quotepath = false
 [http]
         sslVerify = false
 [push]
         default = simple
+<% unless node[:git][:user].empty? %>
 [user]
-        name = <%= node['git-env']['user'] %>
-        email = <%= node['git-env']['email'] %>
+<% node[:git][:user].each do |key, value| %>
+        <%= "#{key} = #{value}" %>
+<% end %>
+<% end %>
